@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>text-to-speech conversion</title>
+</head>
+<body>
+    <h2>Текст для озвучки:</h2>
+    <p>
+        <textarea id="message">Привет! Сюда можно ввести любой текст, который ты хочешь озвучить.</textarea>
+    </p>
+
+    <button id="speak">Озвучить</button>
+
+    <script>
+        function speak(text){
+            const message = new SpeechSynthesisUtterance()
+            message.lang = 'ru-RU'
+            message.text = text
+            window.speechSynthesis.speak(message)
+        }
+
+        const btn = document.querySelector('#speak')
+        const txt = document.querySelector('#message')
+
+        btn.addEventListener('click', () => {
+            speak(txt.value);
+        });
+    </script>
+</body>
+</html>
