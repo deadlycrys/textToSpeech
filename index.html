@@ -16,6 +16,7 @@
     <button id="speak">Озвучить</button>
 
     <script>
+        //Функция озвучивания введенного текста. В () передается введенный текст. 
         function speak(text){
             const message = new SpeechSynthesisUtterance()
             message.lang = 'ru-RU'
@@ -23,9 +24,11 @@
             window.speechSynthesis.speak(message)
         }
 
+        //Берутся html элементы с текстом, который нужно озвучить, и кнопкой, по которой это будет выполняться
         const btn = document.querySelector('#speak')
         const txt = document.querySelector('#message')
 
+        //При нажатии по кнопке вызывается функция озвучивания введенного текста
         btn.addEventListener('click', () => {
             speak(txt.value);
         });
